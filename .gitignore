@@ -1,1 +1,2 @@
-./vaapi-checker
+vaapi-checker
+.direnv/
