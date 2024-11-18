@@ -1,4 +1,3 @@
-// File: pkg/vaapi/checker.go
 //go:build linux
 // +build linux
 
