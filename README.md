@@ -5,20 +5,27 @@ A utility to check VA-API hardware encoding capabilities on headless Linux syste
 ## Prerequisites
 
 - Go 1.18 or later
+- `libva-dev` and `libva-drm-dev` packages installed
+- DRM render node access rights
+
+### Ubuntu 22.04
+
+An example of installing the required tool using Ubuntu 22.04.
+
+#### Installing
+
+Install Go
 
 ```bash
 sudo apt-get install golang-go
 ```
+Install the required libraries
 
-- libva-dev and libva-drm-dev packages installed
-- DRM render node access rights
-
-On Ubuntu/Debian systems, install prerequisites with:
 ```bash
 sudo apt-get install libva-dev libdrm-dev pkg-config
 ```
 
-Check if pkg-config can find `libva` and `libva-drm`
+Check if `pkg-config` can find `libva` and `libva-drm`
 
 ```bash
 pkg-config --libs --cflags libva libva-drm
@@ -29,7 +36,7 @@ Make sure your user has access to DRM render nodes:
 sudo usermod -a -G render,video $USER
 ```
 
-## Building
+#### Building
 
 Clear the cache if required.
 
@@ -43,13 +50,13 @@ Build verbosely.
 go build -v -x ./cmd/vaapi-checker
 ```
 
-## Running
+#### Running
 
 ```bash
 ./vaapi-checker
 ```
 
-## Output Example
+The output will look something like this:
 
 ```
 VA-API Hardware Encoding Capabilities:
